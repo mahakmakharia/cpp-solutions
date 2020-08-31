@@ -6,11 +6,10 @@ int main()
     string s;
     cin >> s;
     transform(s.begin(), s.end(), s.begin(), ::toupper);
-    char char_array[s.length() + 1];
     unordered_map<char, int> count_map;
     bool flag = false;
-    strcpy(char_array, s.c_str());
-    for (auto i : char_array)
+
+    for (auto i : s)
     {
         if (count_map.find(i) == count_map.end())
             count_map[i] = 1;
