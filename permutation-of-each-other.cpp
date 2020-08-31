@@ -12,9 +12,9 @@ int main()
     if (str1.length() == str2.length())
     {
 
-        // bool flag = orderedMapApproach(&str1, &str2);
-        bool flag = sortedStringApproach(str1, str2);
-        if (flag)
+        bool flag = orderedMapApproach(&str1, &str2);
+        flag = sortedStringApproach(str1, str2);
+        if (!flag)
             cout << "not permutation of each other" << endl;
         else
             cout << "permutation of each other" << endl;
@@ -44,15 +44,15 @@ bool orderedMapApproach(string *s1, string *s2)
             count_map[i]--;
             if (count_map[i] < 0)
             {
-                return true;
+                return false;
             }
         }
         else
         {
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 bool sortedStringApproach(string s1, string s2)
@@ -63,7 +63,7 @@ bool sortedStringApproach(string s1, string s2)
     for (auto i : s1)
     {
         if (i != s2[j++])
-            return true;
+            return false;
     }
-    return false;
+    return true;
 }
